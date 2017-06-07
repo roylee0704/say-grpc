@@ -1,11 +1,12 @@
-### Usage
+### Installation
 
-First, build your Dockerfile. 
+Build your Dockerfile. 
 ```sh
 # It shall download `flite` binary into alpine. We will run it via 'docer exec'.
 $ docker build -t roy/say .
 ```
 
+### Usage
 To view available options:
 ```sh
 $ docker run --rm roy/say flite -h 
@@ -23,4 +24,14 @@ docker run --rm -v $(pwd)/data:/data -w /data roy/say flite -t hello -o output.w
 Finally, to play
 ```
 $ afplay data/output.wav
+```
+
+### With main.go
+
+`main.go` runs flite binary that produces `output.wav` of first argument.
+
+
+With app (main.go's executable) in container, you may now run:
+```sh 
+docker run --rm -v $(pwd)/data:/data -w /data roy/say "hello there"
 ```
