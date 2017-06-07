@@ -1,0 +1,16 @@
+syntax = "proto3";
+package say;
+
+
+// hold endpoints
+service TextToSpeech {
+    rpc Say(Text) returns(Speech) {}
+}
+
+message Text {
+    string text = 1; // you need to give one number.
+}
+
+message Speech {
+    bytes Audio = 1;
+}
