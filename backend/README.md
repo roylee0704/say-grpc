@@ -19,3 +19,8 @@ Next, to export output from docker container, map the volumes
 # -w : set as working directory
 docker run --rm -v $(pwd)/data:/data -w /data roy/say flite -t hello -o output.wav
 ```
+
+Finally, to play
+```
+$ afplay data/output.wav
+```
